@@ -1,66 +1,87 @@
-# printf
-A simple printf function built for Alx software Engineering School.
+# 0x11. C - printf
 
-#Welcome
+## Description
+This team project is part of the first year curriculum of ALX School.
+_printf replicates the C standard library printf() function.
 
-Rebuild of the standard printf function in C. Our project required a function capable of printing with the %d, %c, %s, and %% specifiers to standard output. printf returns the number of characters printed (excluding the null byte at the end of strings). We were not asked to handle flag characters, field width, precision, or length.
+What you should learn from this project:
 
-#Format Specifiers
+* How to use git in a team setting
+* Applying variadic functions to a big project
+* The complexities of printf
+* Managing a lot of files and finding a good workflow
 
-Our team chose to add %x ,%X, %b, %o, %u, %r, %R, and %p formatting. We relied on the library we have been building at Alx as well as new concepts gathered during this project.
+---
 
-#Supported Format Types
-
-TYPE - OUTPUT
-
-c - Single character
-
-s - String
-
-r - String in reverse
-
-R - String in rot13
-
-d - Integer in decimal
-
-i - integer
-
-% - Percent sign
-
-Xl - Lowercase hex
-
-X - Uppercase hex
-
-b - binary
-
-o - octal
-
-u - unsigned
-
-p - pointer
-
-F - expletive
-
-#Examples
-
-Character: printf("%c", A); Output:: A
-
-String: printf("%s", This is a string.); Output: This is a string.
-
-Integer: printf("%i", 5); Output: 5
-
-Expletive: printf("%F", anything); Output: FUCK
-
-#Requirements
-
-Allowed editors: vi, vim, emacs All your files will be compiled on Ubuntu 20.04 LTS using gcc, using the options -Wall -Werror -Wextra -pedantic -std=gnu89 All your files should end with a new line A README.md file, at the root of the folder of the project is mandatory Your code should use the Betty style. It will be checked using betty-style.pl and betty-doc.pl You are not allowed to use global variables No more than 5 functions per file In the following examples, the main.c files are shown as examples. You can use them to test your functions, but you don’t have to push them to your repo (if you do we won’t take them into account). We will use our own main.c files at compilation. Our main.c files might be different from the one shown in the examples The prototypes of all your functions should be included in your header file called main.h Don’t forget to push your header file All your header files should be include guarded Note that we will not provide the _putchar function for this project GitHub There should be one project repository per group. If you clone/fork/whatever a project repository with the same name before the second deadline, you risk a 0% score.
-
-#Authorized functions and macros
-
-write (man 2 write) malloc (man 3 malloc) free (man 3 free) va_start (man 3 va_start) va_end (man 3 va_end) va_copy (man 3 va_copy) va_arg (man 3 va_arg)
-
-#Authors
-
-Frank Mombo 
-
-Juma Michelle
+## Prototype
+```int _printf(const char *format, ...);```
+## Usage
+* Prints a string to the standard output, according to a given format
+* All files were created and compiled on Ubuntu 20.04.4 LTS using GCC 4.8.4 with the command ```gcc -Wall -Werror -Wextra -pedantic *.c```
+* Returns the number of characters in the output string on success, -1 otherwise
+* Call it this way: ```_printf("format string", arguments...)``` where ```format string``` can contain conversion specifiers and flags,
+along with regular characters
+## Examples
+* ```_printf("Hello, Main\n")``` *prints "Hello, Main", followed by a new line*
+* ```_printf("%s", "Hello")``` *prints "Hello"*
+* ```_printf("This is a number: %d", 98)``` *prints "This is a number: 98"*
+---
+# Tasks
+These are all the tasks of this project, the ones that are completed link to the corresponding files.
+### [0. I'm not going anywhere. You can print that wherever you want to. I'm here and I'm a Spur for life](./_printf.c)
+* Write a function that produces output according to format.
+  - c : converts input into a character
+  - s : converts input into a string
+### [1. Education is when you read the fine print. Experience is what you get if you don't](./print_nums.c)
+* Handle the following conversion specifiers:
+  - d : converts input into a base 10 integer
+  - i : converts input into an integer
+### [2. Just because it's in print doesn't mean it's the gospel](./man_3_printf)
+* Create a man page for your function
+### [3. With a face like mine, I do better in print](./print_bases.c)
+* Handle the following conversion specifiers:
+  - b : the unsigned int argument is converted to binary
+### [4. What one has not experienced, one will never understand in print](./print_bases.c)
+* Handle the following conversion specifiers:
+  - u : converts the input into an unsigned integer
+  - o : converts the input into an octal number
+  - x : converts the input into a hexadecimal number
+  - X : converts the input into a hexadecimal number with capital letters
+### [5. Nothing in fine print is ever good news](./write_funcs.c)
+* Use a local buffer of 1024 chars in order to call write as little as possible.
+### [6. My weakness is wearing too much leopard print](./print_custom.c)
+* Handle the following custom conversion specifier:
+  - S : prints the string
+  - Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+### [7. How is the world ruled and led to war? Diplomats lie to journalists and believe these lies when they see them in print](./print_address.c)
+* Handle the following conversion specifier:
+  - p : int input is converted to a pointer address
+### [8. The big print gives and the small print takes away](./get_flag.c)
+* Handle the following flag characters for non-custom conversion specifiers:
+  - \+ : adds a \+ in front of signed positive numbers and a \- in front of signed negative numbers
+  - space : same as \+, but adds a space (is overwritten by \+)
+  - \# : adds a 0 in front of octal conversions that don't begin with one, and a 0x or 0X for x or X conversions
+### [9. Sarcasm is lost in print]
+* Handle the following length modifiers for non-custom conversion specifiers:
+  - l : converts d, i, u, o, x, X conversions in short signed or unsigned ints
+  - h : converts d, i, u, o, x, X conversions in long signed or unsigned ints
+### [10. Print some money and give it to us for the rain forests]
+* Handle the field width for non-custom conversion specifiers.
+### [11. The negative is the equivalent of the composer's score, and the print the performance]
+* Handle the precision for non-custom conversion specifiers.
+### [12. It's depressing when you're still around and your albums are out of print]
+* Handle the 0 flag character for non-custom conversion specifiers.
+### [13. Every time that I wanted to give up, if I saw an interesting textile, print what ever, suddenly I would see a collection]
+* Handle the - flag character for non-custom conversion specifiers.
+### [14. Print is the sharpest and the strongest weapon of our party](./print_custom.c)
+* Handle the following custom conversion specifier:
+  - r : prints the reversed string
+### [15. The flood of print has turned reading into a process of gulping rather than savoring](./print_custom.c)
+* Handle the following custom conversion specifier:
+  - R : prints the rot13'ed string
+### [16. * ]
+* All the above options work well together.
+---
+### Authors
+* **Michelle Juma** - (https://github.com/juma-h)
+* **Frank Mombo** - (https://github.com/frankmombo)
